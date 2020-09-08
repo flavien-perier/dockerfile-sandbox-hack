@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y sudo git curl openssh-client openssh-se
     /etc/init.d/ssh stop && \
     mkdir /run/sshd && \
     rm -rf /var/lib/apt/lists/* && \
+    chown root:root start.sh && \
     chmod 750 start.sh
 
 VOLUME /home/admin
