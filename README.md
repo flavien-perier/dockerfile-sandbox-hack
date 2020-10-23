@@ -1,3 +1,7 @@
+![license](https://badgen.net/github/license/flavien-perier/dockerfile-sandbox-hack)
+[![docker pulls](https://badgen.net/docker/pulls/flavienperier/sandbox-hack)](https://hub.docker.com/r/flavienperier/sandbox-hack)
+[![ci status](https://badgen.net/github/checks/flavien-perier/dockerfile-sandbox-hack)](https://github.com/flavien-perier/dockerfile-sandbox-hack)
+
 # Dockerfile Sandbox-hack
 
 Pentest environment accessible with SSH.
