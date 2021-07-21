@@ -1,16 +1,16 @@
 FROM kalilinux/kali
 
-LABEL maintainer="Flavien PERIER <perier@flavien.io>"
-LABEL version="1.0"
-LABEL description="Kali linux sandbox"
+LABEL maintainer="Flavien PERIER <perier@flavien.io>" \
+      version="1.0.0" \
+      description="Kali linux sandbox"
 
-ARG DOCKER_UID=500
-ARG DOCKER_GID=500
+ARG DOCKER_UID="500"
+ARG DOCKER_GID="500"
 
-ENV PASSWORD=password
+ENV PASSWORD="password"
 
 WORKDIR /root
-
+VOLUME /home/admin
 COPY start.sh start.sh
 
 RUN apt-get update && apt-get install -y sudo git curl openssh-client openssh-server \
@@ -24,8 +24,6 @@ RUN apt-get update && apt-get install -y sudo git curl openssh-client openssh-se
     rm -rf /var/lib/apt/lists/* && \
     chown root:root start.sh && \
     chmod 750 start.sh
-
-VOLUME /home/admin
 
 EXPOSE 22
 
