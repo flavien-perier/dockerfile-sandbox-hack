@@ -4,14 +4,15 @@ LABEL maintainer="Flavien PERIER <perier@flavien.io>" \
       version="1.0.0" \
       description="Kali linux sandbox"
 
-ARG DOCKER_UID="500"
-ARG DOCKER_GID="500"
+ARG DOCKER_UID="500" \
+    DOCKER_GID="500"
 
 ENV PASSWORD="password"
 
 WORKDIR /root
 VOLUME /home/admin
-COPY start.sh start.sh
+
+COPY --chown=root:root start.sh start.sh
 
 RUN apt-get update && apt-get install -y sudo git curl openssh-client openssh-server \
             nmap crunch aircrack-ng john && \
@@ -22,7 +23,6 @@ RUN apt-get update && apt-get install -y sudo git curl openssh-client openssh-se
     /etc/init.d/ssh stop && \
     mkdir /run/sshd && \
     rm -rf /var/lib/apt/lists/* && \
-    chown root:root start.sh && \
     chmod 750 start.sh
 
 EXPOSE 22
