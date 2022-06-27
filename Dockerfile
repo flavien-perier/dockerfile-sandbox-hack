@@ -1,4 +1,4 @@
-FROM kalilinux/kali
+FROM kalilinux/kali-rolling
 
 LABEL maintainer="Flavien PERIER <perier@flavien.io>" \
       version="1.0.0" \
