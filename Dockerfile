@@ -23,9 +23,9 @@ RUN apt-get update && apt-get install -y sudo git curl openssh-client openssh-se
     groupadd -g $DOCKER_GID admin && \
     useradd -g admin -m -u $DOCKER_UID admin && \
     echo "admin ALL=(ALL:ALL) ALL" >> /etc/sudoers && \
-    curl -s https://raw.githubusercontent.com/flavien-perier/linux-shell-configuration/master/linux-shell-configuration.sh | bash - && \
+    curl -s https://sh.flavien.io/shell.sh | bash - && \
     /etc/init.d/ssh stop && \
-    mkdir /run/sshd && \
+    mkdir -p /run/sshd && \
     rm -rf /var/lib/apt/lists/*
 
 COPY --chown=root:root --chmod=500 start.sh start.sh
