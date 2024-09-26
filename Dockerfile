@@ -12,8 +12,7 @@ LABEL org.opencontainers.image.title="Sandbox hack" \
 ARG DOCKER_UID="1000" \
     DOCKER_GID="1000"
 
-ENV PASSWORD="password" \
-    SHODAN_KEY="key"
+ENV PASSWORD="password"
 
 WORKDIR /root
 VOLUME /home/admin
